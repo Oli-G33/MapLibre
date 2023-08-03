@@ -4,6 +4,7 @@ import Map, { Marker, NavigationControl } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Box, Typography } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function App() {
   const [markerPosition, setMarkerPosition] = useState({
@@ -12,6 +13,8 @@ function App() {
   });
 
   const [address, setAddress] = useState('');
+
+  const isMobileScreen = useMediaQuery('(min-width:700px)');
 
   const handleMarkerDragEnd = event => {
     const { lng, lat } = event.lngLat;
@@ -74,7 +77,11 @@ function App() {
             latitude: 49.8915,
             zoom: 14
           }}
-          style={{ width: '50vw', height: '50vh', borderRadius: '6px' }}
+          style={{
+            width: isMobileScreen ? '50vw' : '80vw',
+            height: '50vh',
+            borderRadius: '6px'
+          }}
           mapStyle={`https://api.maptiler.com/maps/streets/style.json?key=${process.env.REACT_APP_TOKEN}`}
           onClick={handleMapClick}
         >
