@@ -67,14 +67,14 @@ function App() {
       <Box>
         <Typography m={6}>Select location: </Typography>
       </Box>
-      <Box sx={{ border: 1, borderColor: 'grey.500' }}>
+      <Box sx={{ border: 1, borderColor: 'grey.500', borderRadius: '6px' }}>
         <Map
           initialViewState={{
             longitude: 10.8867,
             latitude: 49.8915,
             zoom: 14
           }}
-          style={{ width: '50vw', height: '50vh' }}
+          style={{ width: '50vw', height: '50vh', borderRadius: '6px' }}
           mapStyle={`https://api.maptiler.com/maps/streets/style.json?key=${process.env.REACT_APP_TOKEN}`}
           onClick={handleMapClick}
         >
@@ -95,12 +95,12 @@ function App() {
         <Box>
           <Typography>Pick-up location: {address}</Typography>
         </Box>
-        <Box>
+        {/* <Box>
           <Typography>Longitude: {markerPosition.longitude}</Typography>
         </Box>
         <Box>
           <Typography>Latitude: {markerPosition.latitude}</Typography>
-        </Box>
+        </Box> */}
       </Box>
     </div>
   );
